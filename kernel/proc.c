@@ -303,6 +303,9 @@ fork(void)
 
   safestrcpy(np->name, p->name, sizeof(p->name));
 
+  // copy syscall tracing mask
+  np->tracing = p->tracing;
+
   pid = np->pid;
 
   release(&np->lock);
