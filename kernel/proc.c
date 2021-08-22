@@ -664,3 +664,20 @@ procdump(void)
     printf("\n");
   }
 }
+
+// Returns the number of not UNUSED procs
+int
+nprocs(void)
+{
+    struct proc *p;
+    int t;
+
+    t = 0;
+    for (p = proc; p < &proc[NPROC]; p++) {
+        if (p->state != UNUSED) {
+            t++;
+        }
+    }
+
+    return t;
+}
